@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Limit Example</title>
+</head>
+<body>
+  <textarea id="alan" oninput="ornek()" maxlength="10"></textarea>
+  <p>Karakter Sayısı: <span id="karakter">0</span></p>
+  <p>Kalan Karakter: <span id="kalankarakter">10</span></p>
+
+  <script type="text/javascript">
+    var kullanilan = 0;
+    var maksimum = 9;
+
+    function ornek() {
+      var baglan = document.getElementById("alan");
+      var uzunluk = baglan.value.length;
+
+      if (uzunluk >= maksimum) {
+        var deger = baglan.value;
+        var olustur = deger.substr(0, 9);
+        document.getElementById("alan").value = olustur;
+        document.getElementById("karakter").innerHTML = 10;
+        document.getElementById("kalankarakter").innerHTML = 0;
+      } else {
+        var deger = baglan.value;
+        var olustur = deger.substr(0, maksimum);
+        document.getElementById("alan").value = olustur;
+        document.getElementById("karakter").innerHTML = uzunluk;
+        document.getElementById("kalankarakter").innerHTML = maksimum - uzunluk;
+      }
+    }
+  </script>
+</body>
+</html>
